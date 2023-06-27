@@ -1,29 +1,46 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * rev_string - reverses a string
- * @s: string to be reversed
- */
+*rev_string - Reverse a string
+*@s: String to reverse
+*Return: Nothing
+*/
 void rev_string(char *s)
 {
-	char tmp;
-	int i, len, len1;
+int i = 0, length;
+length = _strlen(s) - 1;
+while (length > i)
+{
+swap_char(s + length, s + i);
+i++;
+length--;
+}
+}
 
-	len = 0;
-	len1 = 0;
+/**
+ *_strlen - returns the length of a string
+ * @s: string
+ *Return: returns lenght;
+ */
+int _strlen(char *s)
+{
+int count, inc;
+inc = 0;
+for (count = 0; s[count] != '\0'; count++)
+inc++;
 
-	while (s[len] != '\0')
-	{
-		len++;
-	}
+return (inc);
+}
 
-	len1 = len - 1;
+/**
+*swap_char - swap two characters
+*@a: first character
+*@b: second character
+*Return: nothing
+*/
 
-	for (i = 0; i < len / 2; i++)
-	{
-		tmp = s[i];
-		s[i] = s[len1];
-		s[len1--] = tmp;
-	}
+void swap_char(char *a, char *b)
+{
+char tmp = *a;
+*a = *b;
+*b = tmp;
 }
